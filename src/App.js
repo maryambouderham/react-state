@@ -1,11 +1,12 @@
 
-import WelcomeF from "./component/Welcome-f";
+import Person from "./component/Person";
+
 
 
 function App() {
   return (
     <>
-     <WelcomeF/>
+     <Person/>
     </>
   );
 }
