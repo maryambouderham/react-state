@@ -1,21 +1,22 @@
-import { useRef, useState } from "react";
+const { useEffect, useState } = require("react");
 
-function App() {
-  let [name,setName]=useState("ned stark")
-  let nameRef=useRef()
-  const submitButton =()=>{
-    setName(nameRef.current.value)
-    nameRef.current.value=""
-  }
-  return (
-    <div className="text-center">
-     <p>{name}</p>
-     <input  ref={nameRef} type="text" />
-     <button type="button" onClick={submitButton}>
-          Submit
-        </button>
-    </div>
-  );
+function useInterval(timeout, getValue) {
+  const [value, setValue] = useState(getValue);
+  useEffect(() => {
+    const intervalID = setInterval(
+      () => setValue(getValue()),
+      timeout
+    );
+    return function () {
+      clearInterval(intervalID);
+    }
+  }, []);
+  return value;
 }
 
-export default App;
+const getCurrentDate = () => new Date();
+
+export default function App() {
+  const date = useInterval(1000, getCurrentDate);
+  return <p>Nous sommes le {date.toLocaleString("fr-FR")}</p>;
+}
