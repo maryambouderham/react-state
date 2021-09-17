@@ -1,15 +1,19 @@
-import { useState } from "react";
-import LifeCycle from "./component/Lifecycle";
-import LifeCycleF from "./component/LifecycleF";
+import { useRef, useState } from "react";
 
 function App() {
-  const [shows, setShows] = useState(true)
+  let [name,setName]=useState("ned stark")
+  let nameRef=useRef()
+  const submitButton =()=>{
+    setName(nameRef.current.value)
+    nameRef.current.value=""
+  }
   return (
     <div className="text-center">
-      { shows ? <LifeCycle /> : null }
-      { shows ? <LifeCycleF /> : null }
-      <button className={shows? "btn btn-danger":"btn btn-success"}
-        onClick={() => setShows(!shows)}>{!shows? "Wake up 🌝":"Sleep 😴" }</button>
+     <p>{name}</p>
+     <input  ref={nameRef} type="text" />
+     <button type="button" onClick={submitButton}>
+          Submit
+        </button>
     </div>
   );
 }
