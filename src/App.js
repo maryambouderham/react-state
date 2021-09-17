@@ -1,12 +1,13 @@
 
-import Person from "./component/Person";
+
+import Santama from "./component/Santama";
 
 
 
 function App() {
   return (
     <>
-     <Person/>
+     <Santama/>
     </>
   );
 }
