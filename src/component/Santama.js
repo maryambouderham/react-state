@@ -14,7 +14,7 @@ const Santama = () => {
                 width="200"
                 className={Shows? "rounded-circle border me-2" : "invisible"}
                 src={Image} alt=""/>
-                <div className="m-5">
+                <div className="m-5 border border-success  border-5">
                 <h1>Fullname:  {Fullname}</h1>
                 <h1>Bio:  {Bio}</h1>
                          
