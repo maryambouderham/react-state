@@ -1,32 +1,33 @@
-import React from 'react'
+import React from "react";
 
-import TodoList from './TodoList'
+import TodoList from "./TodoList";
+import { useState } from "react";
 
 
+import AddTodoItem from "./AddTodoItem";
 
-const principal = () => {
-    const [title, setTitle] = useState("titre ")
-    const [title1, setTitle] = useState("titre 1")
-    const [title2, setTitle] = useState("titre 2")
-    const LIST_TITLES = [
+const Principal = () => {
+  const [titles, setTitle] = useState([]);
+  
+  const onClickAddTitle = (data) => {
     
-        title,title1,title2
-    ]
-    
-    return (
-        <div>
-            <addTodoItem  />
-            <div class="input-group rounded">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-          aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
-          <i class="fas fa-search"></i>
-        </span>
-      </div>
-      <TodoList/>
+    setTitle(titles => [...titles, data]);
+   
+  };
+  const DeleteTitle = (t) =>{
+    console.log("aaa")
+    //let newarray = titles.filter(element => element !== data);
+    //this.setState({ titles: newarray });
+  }
+  return (
+    <div>
+      <AddTodoItem onClickAdd={onClickAddTitle} />
 
-        </div>
-    )
-}
+      <TodoList listTitles={titles}
+      OnClickDeleteTitle={DeleteTitle}
+      />
+    </div>
+  );
+};
 
-export default principal
+export default Principal;

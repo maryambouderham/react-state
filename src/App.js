@@ -1,9 +1,10 @@
-import MovieCard from "./component/MovieCard";
+
+import Principal from "./component/Principal";
 
 function App() {
   return (
     <>
-      <MovieCard/>
+      <Principal/>
     </>
    
   );
