@@ -1,10 +1,11 @@
 
-import Principal from "./component/Principal";
+
+import AppBrowserRouter from "./pages/AppBrowserRouter";
 
 function App() {
   return (
     <>
-      <Principal/>
+    
     </>
    
   );

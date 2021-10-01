@@ -5,11 +5,13 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 //component
-import App from './App';
+
+import AppWithNestedRoutingWithParam from './pages/AppWithNestedRoutingWithParam';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <AppWithNestedRoutingWithParam/>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
